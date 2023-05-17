@@ -20,13 +20,11 @@ function handlerSearch(event) {
 }
 
 function serviceWeather(city='', days=1) {
-    const BASE_URL = 'http://api.weatherapi.com/v1';
+    const BASE_URL = 'https://api.weatherapi.com/v1';
     const API_KEY = '827a813fed674cf3ad0135419231605';
 
-    return fetch(
-        `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}&lang=uk`)
+    return fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}&lang=uk`)
         .then(response => {
-            console.log(response);
             if (!response.ok) {
                 throw new Error(response.statusText)
             }
